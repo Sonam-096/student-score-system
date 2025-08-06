@@ -1,3 +1,4 @@
+-- These queries should be run on MYSql
 CREATE DATABASE IF NOT EXISTS student_management;
 
 USE student_management;
