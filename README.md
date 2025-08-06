@@ -19,8 +19,7 @@ This is a Student Result Management System website that I developed as a minor p
 The Student Result Management System is a web-based application designed to streamline the process of managing student academic records. It features three main portals: Admin, Teacher, and Student. The admin can add or remove students and teachers, while teachers can upload and modify marks. Students can log in to view and download their results. The system also automates total marks and percentage calculation, ensuring efficiency and accuracy in result management.
 
 ## Working
-Student Result Management System Website
-This is a Student Result Management System website that includes three main user portals:
+<pre>This is a Student Result Management System website that includes three main user portals:
 Admin
 Student
 Teacher
@@ -67,6 +66,7 @@ Students can log in to view their result.
 They can also download their result as a PDF file for future reference.
 ________________________________________
 
+</pre>
 
 ## Technology Stack
 
