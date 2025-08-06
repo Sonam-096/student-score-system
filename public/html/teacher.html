@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | Akshar Public School</title>
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/teacher.css">
+    
+</head>
+<body>
+    <div class="teacher-dashboard-container">
+        <header class="teacher-header">
+            <div class="header-content">
+                <img src="../images/school_logo.jpg" alt="School Logo" class="logo">
+                <div>
+                    <h1>Teacher Dashboard</h1>
+                    <p>Welcome, <span id="teacher-name-display">Teacher</span>!</p>
+                </div>
+            </div>
+            <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </header>
+
+        <main class="main-content">
+            <section class="welcome-section">
+                <h2 id="teacher-class-section-display"></h2>
+                <p>Here you can view and manage marks for your students.</p>
+            </section>
+
+            <section class="action-buttons">
+                <button id="assign-marks-btn"><i class="fas fa-edit"></i> Assign/Update Student Marks</button>
+            </section>
+
+            <section class="table-container">
+                <h2>Students in Your Class</h2>
+                <table id="teacher-students-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Roll No.</th>
+                            <th rowspan="2">Name</th>
+                            <th colspan="8" class="exam-header">Unit-1</th>
+                            <th colspan="8" class="exam-header">Unit-2</th>
+                            <th colspan="8" class="exam-header">Half Yearly</th>
+                            <th colspan="8" class="exam-header">Unit-3</th>
+                            <th colspan="8" class="exam-header">Unit-4</th>
+                            <th colspan="8" class="exam-header">Yearly</th>
+                        </tr>
+                        <tr>
+                            <!-- Unit-1 Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                            <!-- Unit-2 Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                            <!-- Half Yearly Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                            <!-- Unit-3 Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                            <!-- Unit-4 Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                            <!-- Yearly Subjects -->
+                            <th class="subject-header">Math</th>
+                            <th class="subject-header">Science</th>
+                            <th class="subject-header">Hindi</th>
+                            <th class="subject-header">English</th>
+                            <th class="subject-header">SST</th>
+                            <th class="subject-header">GK</th>
+                            <th class="subject-header">Drawing</th>
+                            <th class="subject-header">Moral Science</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Student data and marks will be inserted here by JavaScript -->
+                        <tr>
+                            <td colspan="50" class="no-data">Loading students...</td> <!-- 2 + (6 * 8) = 50 columns -->
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Assign Marks Modal -->
+    <div id="assignMarksModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button">&times;</button> 
+            <h2>Assign/Update Student Marks</h2>
+            <form id="assign-marks-form">
+                <input type="hidden" id="modal-student-id"> <!-- Hidden field to store student's DB ID -->
+                
+                <div class="form-group">
+                    <label for="modal-student-select">Select Student (Roll No. - Name)*</label>
+                    <select id="modal-student-select" required>
+                        <option value="">Select a student</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+
+                <!-- Marks for each exam type and subject -->
+                <!-- Unit-1 -->
+                <h3>Unit-1 Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="unit1-math">Math</label><input type="number" id="unit1-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-science">Science</label><input type="number" id="unit1-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-hindi">Hindi</label><input type="number" id="unit1-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-english">English</label><input type="number" id="unit1-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-sst">SST</label><input type="number" id="unit1-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-gk">GK</label><input type="number" id="unit1-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-drawing">Drawing</label><input type="number" id="unit1-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit1-moral_science">Moral Science</label><input type="number" id="unit1-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <!-- Unit-2 -->
+                <h3>Unit-2 Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="unit2-math">Math</label><input type="number" id="unit2-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-science">Science</label><input type="number" id="unit2-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-hindi">Hindi</label><input type="number" id="unit2-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-english">English</label><input type="number" id="unit2-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-sst">SST</label><input type="number" id="unit2-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-gk">GK</label><input type="number" id="unit2-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-drawing">Drawing</label><input type="number" id="unit2-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit2-moral_science">Moral Science</label><input type="number" id="unit2-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <!-- Half Yearly -->
+                <h3>Half Yearly Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="half_yearly-math">Math</label><input type="number" id="half_yearly-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-science">Science</label><input type="number" id="half_yearly-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-hindi">Hindi</label><input type="number" id="half_yearly-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-english">English</label><input type="number" id="half_yearly-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-sst">SST</label><input type="number" id="half_yearly-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-gk">GK</label><input type="number" id="half_yearly-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-drawing">Drawing</label><input type="number" id="half_yearly-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="half_yearly-moral_science">Moral Science</label><input type="number" id="half_yearly-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <!-- Unit-3 -->
+                <h3>Unit-3 Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="unit3-math">Math</label><input type="number" id="unit3-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-science">Science</label><input type="number" id="unit3-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-hindi">Hindi</label><input type="number" id="unit3-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-english">English</label><input type="number" id="unit3-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-sst">SST</label><input type="number" id="unit3-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-gk">GK</label><input type="number" id="unit3-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-drawing">Drawing</label><input type="number" id="unit3-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit3-moral_science">Moral Science</label><input type="number" id="unit3-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <!-- Unit-4 -->
+                <h3>Unit-4 Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="unit4-math">Math</label><input type="number" id="unit4-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-science">Science</label><input type="number" id="unit4-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-hindi">Hindi</label><input type="number" id="unit4-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-english">English</label><input type="number" id="unit4-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-sst">SST</label><input type="number" id="unit4-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-gk">GK</label><input type="number" id="unit4-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-drawing">Drawing</label><input type="number" id="unit4-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="unit4-moral_science">Moral Science</label><input type="number" id="unit4-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <!-- Yearly -->
+                <h3>Yearly Marks</h3>
+                <div class="form-row">
+                    <div class="form-group"><label for="yearly-math">Math</label><input type="number" id="yearly-math" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-science">Science</label><input type="number" id="yearly-science" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-hindi">Hindi</label><input type="number" id="yearly-hindi" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-english">English</label><input type="number" id="yearly-english" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-sst">SST</label><input type="number" id="yearly-sst" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-gk">GK</label><input type="number" id="yearly-gk" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-drawing">Drawing</label><input type="number" id="yearly-drawing" min="0" max="100" placeholder="Marks"></div>
+                    <div class="form-group"><label for="yearly-moral_science">Moral Science</label><input type="number" id="yearly-moral_science" min="0" max="100" placeholder="Marks"></div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Save Marks</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/teacher.js"></script>
+</body>
+</html>

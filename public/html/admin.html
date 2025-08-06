@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Akshar Public School</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <div class="header-content">
+                <img src="../images/school_logo.jpg" alt="School Logo" class="logo">
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Welcome back, <span id="admin-name">Admin</span></p>
+                </div>
+            </div>
+            <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </header>
+
+        <main class="dashboard-grid">
+            <a href="add-student.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #3498db;">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Add Student</h3>
+                <p>Enroll new students into the system</p>
+            </a>
+
+            <a href="remove-student.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #e74c3c;">
+                    <i class="fas fa-user-minus"></i>
+                </div>
+                <h3>Remove Student</h3>
+                <p>Delete student records from the system</p>
+            </a>
+
+            <a href="add-teacher.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #2ecc71;">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Add Teacher</h3>
+                <p>Register new teachers to the system</p>
+            </a>
+
+            <a href="remove-teacher.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #f39c12;">
+                    <i class="fas fa-user-minus"></i>
+                </div>
+                <h3>Remove Teacher</h3>
+                <p>Remove teacher records from system</p>
+            </a>
+
+            <a href="view-students.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #9b59b6;">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>View Students</h3>
+                <p>View and manage all student records</p>
+                <p class="count-display">Total: <span id="student-count">0</span></p> </a>
+
+            <a href="view-teachers.html" class="dashboard-card">
+                <div class="card-icon" style="background-color: #1abc9c;">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>View Teachers</h3>
+                <p>View and manage all teacher records</p>
+                <p class="count-display">Total: <span id="teacher-count">0</span></p> </a>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/utils.js"></script> <script src="../js/admin.js"></script>
+</body>
+</html>

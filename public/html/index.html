@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshar Public School - Login</title>
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+    
+    <div class="login-container">
+        <div class="design-circle circle-1"></div>
+        <div class="design-circle circle-2"></div>
+        
+        <div class="logo-section">
+            <div class="logo-wrapper">
+                <img src="../images/school_logo.jpg" alt="School Logo" class="logo-image">
+            </div>
+            <h1>Akshar Public School</h1>
+            <h3>Student Result Management System</h3>
+        </div>
+
+        <form id="login-form" class="login-form">
+            <h2><span class="welcome-text">Welcome!</span> Please Login</h2>
+            
+            <div class="form-group role-selection">
+                <label><i class="fas fa-user-tag"></i> Select Your Role</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="role" value="teacher" required>
+                        <span class="radio-design"></span>
+                        <span class="radio-text">Teacher</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="role" value="admin">
+                        <span class="radio-design"></span>
+                        <span class="radio-text">Admin</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="role" value="student">
+                        <span class="radio-design"></span>
+                        <span class="radio-text">Student</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> User ID</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" name="username" placeholder="Enter your ID" required>
+                    <div class="input-highlight"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <div class="input-highlight"></div>
+                    <div class="password-toggle"><i class="far fa-eye"></i></div>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <span class="btn-text">Login</span>
+            </button>
+        </form>
+    </div>
+     <script src="../js/auth.js"></script>
+</body>
+
+</html>

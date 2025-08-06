@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Class Teacher | Akshar Public School</title>
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/notifications.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1><i class="fas fa-chalkboard-teacher"></i> Add Class Teacher</h1>
+            <a href="admin.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        </div>
+
+        <form id="teacher-form" class="teacher-form">
+            <fieldset>
+                <legend><i class="fas fa-key"></i> Admin Control</legend>
+                <div class="form-group">
+                    <label for="teacher-id"><i class="fas fa-id-badge"></i> Teacher ID*</label>
+                    <input type="text" id="teacher-id" name="teacher-id" required
+                           pattern="TCH-[0-9]{4}"
+                           title="Format: TCH-XXXX (e.g. TCH-1001)"
+                           placeholder="Enter Teacher ID (e.g. TCH-1001)">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><i class="fas fa-user"></i> Personal Details</legend>
+                <div class="form-group">
+                    <label for="fullname"><i class="fas fa-user"></i> Full Name*</label>
+                    <input type="text" id="fullname" required placeholder="Enter Teacher's Full Name">
+                </div>
+                <div class="form-group">
+                    <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth*</label>
+                    <input type="date" id="dob" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><i class="fas fa-chalkboard"></i> Class Assignment</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="class"><i class="fas fa-graduation-cap"></i> Class Assigned*</label>
+                        <select id="class" required>
+                            <option value="">Select Class</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="section"><i class="fas fa-users"></i> Section*</label>
+                        <select id="section" required>
+                            <option value="">Select Section</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject"><i class="fas fa-book"></i> Primary Subject*</label>
+                    <input type="text" id="subject" required>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="reset" class="cancel-btn"><i class="fas fa-times"></i> Clear</button>
+                <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Save Teacher</button>
+            </div>
+        </form>
+    </div>
+
+<script src="/socket.io/socket.io.js"></script> <script src="../js/utils.js"></script> <script src="../js/add-teacher.js"></script>
+</body>
+</html>

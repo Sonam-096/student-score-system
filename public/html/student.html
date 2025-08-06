@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result | Akshar Public School</title>
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/table.css">
+    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Load jsPDF and AutoTable plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="student-container" id="result-content">
+        <header class="student-header">
+            <div class="header-content">
+                <img src="../images/school_logo.jpg" alt="School Logo" class="logo">
+                <div>
+                    <h1>Akshar Public School</h1>
+                    <p>Student Result Portal</p>
+                </div>
+            </div>
+            <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </header>
+
+        <section class="student-info-section">
+            <h2>Student Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Name:</span>
+                    <span class="value" id="student-name"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Roll No.:</span>
+                    <span class="value" id="student-rollno"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Class:</span>
+                    <span class="value" id="student-class"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Section:</span>
+                    <span class="value" id="student-section"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Father's Name:</span>
+                    <span class="value" id="student-father"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Mother's Name:</span>
+                    <span class="value" id="student-mother"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-summary-section">
+            <h2>Result Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span class="label">Total Marks (Overall):</span>
+                    <span class="value" id="total-marks">--</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Percentage (Overall):</span>
+                    <span class="value" id="percentage">--%</span>
+                </div>
+                <div class="summary-item grade">
+                    <span class="label">Grade (Overall):</span>
+                    <span class="value" id="grade">--</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="marks-table-section">
+            <h2>Detailed Marks</h2>
+            <table id="student-marks-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Subject</th>
+                        <th colspan="6" class="exam-header">Exam Marks</th>
+                    </tr>
+                    <tr>
+                        <th class="subject-header">Unit-1</th>
+                        <th class="subject-header">Unit-2</th>
+                        <th class="subject-header">Half Yearly</th>
+                        <th class="subject-header">Unit-3</th>
+                        <th class="subject-header">Unit-4</th>
+                        <th class="subject-header">Yearly</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7" class="no-data">Loading marks...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="download-btn-container">
+            <button id="download-pdf-btn" class="download-btn">
+                <i class="fas fa-file-pdf"></i> Download Result as PDF
+            </button>
+        </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>

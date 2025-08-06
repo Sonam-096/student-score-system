@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Teacher | Akshar Public School</title>
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/notifications.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1><i class="fas fa-user-minus"></i> Remove Teacher</h1>
+            <a href="admin.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+
+        <form class="remove-form">
+            <!-- Teacher Identification -->
+            <fieldset>
+                <legend><i class="fas fa-search"></i> Find Teacher</legend>
+
+                <div class="form-group">
+                    <label for="teacher-id"><i class="fas fa-id-badge"></i> Teacher ID*</label>
+                    <input type="text" id="teacher-id" required
+                           pattern="TCH-[0-9]{4}"
+                           title="Format: TCH-XXXX"
+                           placeholder="Enter Teacher ID (e.g. TCH-1001)">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="search-btn"><i class="fas fa-search"></i> Search Teacher</button>
+                </div>
+            </fieldset>
+
+            <!-- Teacher Details (Hidden by default) -->
+            <fieldset class="teacher-details" style="display: none;">
+                <legend><i class="fas fa-info-circle"></i> Teacher Details</legend>
+
+                <div class="teacher-info">
+                    <div class="info-row">
+                        <span class="label">Name:</span>
+                        <span class="value" id="teacher-name">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Assigned Classes:</span>
+                        <span class="value" id="assigned-classes">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Primary Subject:</span>
+                        <span class="value" id="primary-subject">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Joining Date:</span>
+                        <span class="value" id="joining-date">-</span>
+                    </div>
+                </div>
+
+                <div class="form-group confirmation">
+                    <label for="confirm-teacher">
+                        <input type="checkbox" id="confirm-teacher"> 
+                        I confirm to permanently delete this teacher record
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Hidden input to store the teacher's database ID -->
+            <input type="hidden" id="teacher-db-id">
+
+            <div class="form-actions">
+                <button type="reset" class="cancel-btn"><i class="fas fa-times"></i> Cancel</button>
+                <button type="submit" class="delete-btn" disabled><i class="fas fa-trash-alt"></i> Delete Teacher</button>
+            </div>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../js/utils.js"></script> 
+    <script src="../js/remove-teacher.js"></script>
+</body>
+</html>
