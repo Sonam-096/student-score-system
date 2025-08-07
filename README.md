@@ -80,8 +80,8 @@ The project is built using a combination of frontend and backend technologies:
    
 ## Video and Image Demo
 
-* [Watch a full website demo on YouTube](https://youtu.be/zSsM5rJPZkk?si=vcJfT936lrFF2x5z)
-* [Watch a dumy result pdf that student can download from website](http://youtube.com/post/UgkxufUR8F9x9UCEEMXnNxibgKZPJ3zglPnB?si=zxYG_n528nzcedsU)
+* [Watch a full website demo on YouTube](https://youtu.be/g1qgru-yriA?feature=shared)
+* [Watch a dumy result pdf that student can download from website](http://youtube.com/post/Ugkx23eAeELU3rgD0uybtkVXu17YngX2V-Wx?feature=shared)
 
 ## Contact
 
