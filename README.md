@@ -1,8 +1,8 @@
 # Student Result Management System
-Author - Yash Pandey
+Author - SONAM
 _ _ _
 
-This is a Student Result Management System website that I developed as a minor project during my Diploma in Computer Engineering, in collaboration with my teammate Sonam.
+This is a Student Result Management System website that I developed as a minor project during my Diploma in Computer Engineering, in collaboration with my teammate Yash Pandey.
 
 ## Table of Contents
 
@@ -85,5 +85,5 @@ The project is built using a combination of frontend and backend technologies:
 
 ## Contact
 
-Yash Pandey - [strange.evilup@gmail.com](mailto:strange.evilup@gmail.com)
+SONAM - [69saanu@gmail.com](mailto:69saanu@gmail.com)
 
